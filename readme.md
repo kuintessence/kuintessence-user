@@ -38,13 +38,13 @@ Refer to Kuintessence usage document.
 
 ## Contribution
 
-We welcome any contributions from the community! Kindly consult our [contributing guide](contributing.md) to initiate your journey!
+We welcome any contribution from the community! Kindly consult our [contributing guide](contributing.md) to initiate your journey!
 
 ## Get involved
 
 please feel free to contact us directly:
 
-- esr@suan.wang
+- kuintessence@suan.wang
 
 ## License
 
