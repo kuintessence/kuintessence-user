@@ -1,0 +1,198 @@
+/* 草稿编辑器样式 */
+
+/* 毛玻璃样式 */
+.x6-blur {
+  background-color: rgba(255, 255, 255, 0.72) !important;
+  backdrop-filter: blur(10px) !important;
+}
+.x6-less-blur {
+  background-color: rgba(255, 255, 255, 0.5) !important;
+  backdrop-filter: blur(10px) !important;
+}
+.frosted-glass-card {
+  border-radius: 16px !important;
+  @extend .x6-blur;
+  @extend .shadow;
+}
+.frosted-glass-dialog .q-card {
+  border-radius: 16px !important;
+  @extend .x6-blur;
+  @extend .shadow;
+}
+
+/* 阴影样式 */
+.shadow {
+  box-shadow: 0 1px 3px rgb(0 0 0 / 20%), 0 1px 1px rgb(0 0 0 / 14%), 0 2px 1px -1px rgb(0 0 0 / 12%) !important;
+}
+.default-shadow {
+  box-shadow: 0 1px 3px rgb(0 0 0 / 20%), 0 1px 1px rgb(0 0 0 / 14%), 0 2px 1px -1px rgb(0 0 0 / 12%);
+}
+.selected-shadow {
+  box-shadow: 0 1px 5px rgba(25, 118, 210, 0.8), 0 2px 2px rgba(25, 118, 210, 0.8),
+    0 3px 1px -2px rgba(25, 118, 210, 0.8) !important;
+}
+
+/* 工作流 */
+#x6-container {
+  height: calc(100vh - 88px) !important;
+  /* max-height: 844px; */
+  @extend .x6-blur;
+}
+/* 顶栏(工具栏) */
+#x6-header {
+  color: #000000;
+  @extend .x6-less-blur;
+}
+.viewer-toolbar {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 4px 12px;
+  border-radius: 16px;
+  @extend .x6-less-blur;
+  z-index: 9000;
+}
+/* 右侧边栏 */
+.x6-drawer-title {
+  color: #000000;
+  height: 40px;
+  line-height: 40px;
+}
+.input-title {
+  margin-left: 20px;
+  font-weight: 500;
+}
+/* 工作流节点 */
+.default-node {
+  width: 150px;
+  height: 80px;
+  border-radius: 16px;
+  color: #000000;
+  padding-left: 8px;
+  padding-right: 8px;
+  transition: all 0.3s;
+  border: 1px solid #c9c9c9;
+  @extend .default-shadow;
+  @extend .x6-less-blur;
+}
+.default-node .first-row {
+  display: flex;
+  height: 44px;
+  line-height: 44px;
+  border-bottom: 1px solid #c2c2c2;
+}
+.default-node .details-row {
+  transform: translate3d(1%, 1%, 0) scale(0.9);
+  margin-left: -6.5px;
+  margin-right: -6.5px;
+  height: 28px;
+  line-height: 28px;
+}
+.default-node .details-row .status-content {
+  border-radius: 16px;
+  padding-left: 8px;
+  padding-right: 8px;
+  float: right;
+}
+.default-node .details-row .status-content-instance {
+  border-radius: 16px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+.default-node .center {
+  width: 100%;
+  height: 44px;
+  font-size: 15px;
+}
+.default-node .right-side {
+  display: flex;
+  width: 18px;
+  height: 44px;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  margin-left: 6px;
+}
+/* 高通量节点样式 */
+.htc-node-1 {
+  z-index: -2;
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  opacity: 0.66;
+  border: 1px solid #c9c9c9;
+  @extend .default-shadow;
+}
+.htc-node-2 {
+  position: absolute;
+  top: -9px;
+  left: -9px;
+  z-index: -3;
+  opacity: 0.33;
+  border: 1px solid #c9c9c9;
+  @extend .default-shadow;
+}
+/* 节点悬浮样式 */
+.node-all:hover .default-node {
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3), 0 2px 2px rgba(0, 0, 0, 0.3), 0 3px 1px -2px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s;
+}
+/* 节点选择样式 */
+.x6-node-selected .default-node {
+  @extend .selected-shadow;
+}
+.x6-node-selected .htc-node-1 {
+  @extend .selected-shadow;
+}
+.x6-node-selected .htc-node-2 {
+  @extend .selected-shadow;
+}
+.x6-node-selected:hover .default-node {
+  @extend .selected-shadow;
+}
+.x6-node-selected:hover .htc-node-1 {
+  @extend .selected-shadow;
+}
+.x6-node-selected:hover .htc-node-2 {
+  @extend .selected-shadow;
+}
+/* 连线选择样式 */
+.x6-cell path:nth-child(2) {
+  transition: stroke 0.3s, filter 0.3s;
+}
+.x6-cell:hover path:nth-child(2) {
+  stroke: rgba(0, 0, 0, 0.3);
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
+  transition: stroke 0.3s, filter 0.3s;
+}
+.x6-edge-selected path:nth-child(2) {
+  stroke: rgba(25, 118, 210, 0.8);
+  filter: drop-shadow(0 1px 2px rgba(25, 118, 210, 0.8));
+}
+.x6-edge-selected:hover path:nth-child(2) {
+  stroke: rgba(25, 118, 210, 0.8);
+  filter: drop-shadow(0 1px 2px rgba(25, 118, 210, 0.8));
+}
+
+/* 通知卡片 */
+.dialog-card {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 16px !important;
+  padding: 10px;
+  color: #000000;
+  box-shadow: none !important;
+}
+/* 缩小按钮内图标 */
+.small-icon .q-icon {
+  font-size: 1.4em;
+}
+/* 自定义日期选择器样式 */
+.dp-custom-input {
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.24);
+  &:hover {
+    border: 1px solid rgba(0, 0, 0, 1);
+  }
+}
+.dp-custom-menu {
+  border-radius: 16px !important;
+}
