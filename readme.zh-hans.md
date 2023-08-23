@@ -42,7 +42,7 @@
 
 如果您有任何相关问题，请直接联系我们：
 
-- 邮箱：esr@suan.wang
+- 邮箱：kuintessence@suan.wang
 
 ## 许可证
 
